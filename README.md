@@ -1,19 +1,28 @@
 # TuobaOS
-A Customized Distribution for Embedded, IoT/Edge, Cloud/DataCenter, and so on. 
+A Customized distribution for Embedded, IoT/Edge, Cloud/DataCenter, and so on. 
 
-This is a developer friendly distribution that target at on Open Hardware Platforms to achieve the following goals gradually:
-1) Get rid of the old GNU softwares and corresponding dependencies as much as possible, such like: 
-   1.1) remove GCC and use LLVM as the default toolchain to build everything.
-   1.2) replace glibc with musl libc.
+Developer friendly Linux distribution images that target at on Open Hardware development boards to achieve the following goals gradually:
+
+1) Stage 1
+   1.1) base on an existed distribution like Fedora, Manjaro, and so on 
+   1.2) upstreaming Linux Kernel with all the necessary HCI related features (e.g., eBPF, Virtualization, Debugging, Networking,     
+        Storage…)enabled according to our design 
+   1.3) all the necessary development required packages (such as that for programming language runtimes, developer toolkits, 
+        virtualization softwares, devops utilities, HPC/AI frameworks, security tools, and so on) are preinstalled.
    ...
-2) Upstreaming Kernel with customization.
-3) Most of the development required packages (such as that for the runtime of popular programming languages, developer toolkits, 
-   virtualization, devops utilities, AI frameworks, security tools, and so on) are preinstalled.
 
-It will be implementented in two stages:
-1) in the first or current stage, the images that we provide will base on an existed distribution like Fedora, Debian, and so on; 
-2) in the second stage, we will fully customize a new distribution according to our design goals (will be explained in details later) 
-   and setup our own package repositories if necessary.
+2) Stage 2
+   Get rid of the old GNU softwares and corresponding dependencies as much as possible, such like: 
+   2.1) remove GCC and use LLVM as the default toolchain to build everything like Linux Kernel
+   2.2) replace glibc with musl libc (http://www.musl-libc.org/) upstreaming Linux Kernel with our own customization, 
+        especially for eBPF related code, and an In-Kernel messaging bus
+   ...
+  
+3) Stage 3
+   3.1) replace musl libc with llvm-libc (https://llvm.org/docs/Proposals/LLVMLibC.html) if the later is mature enough 
+   3.2) upstreaming Linux Kernel with all the In-Kernel services work as expected according to our design
+…
+
 
     
 
